@@ -1,0 +1,62 @@
+/*FOR BODY*/
+body{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+ 
+/*FOR BUTTONS*/
+  button.main{
+      width: 20%;
+      height: 20%;
+      border: 0;
+  }
+
+  .success {
+    border-color: #04AA6D;
+    color: green;
+  }
+  
+  .success:hover {
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .info {
+    border-color: #2196F3;
+    color: dodgerblue
+  }
+  
+  .info:hover {
+    background: #2196F3;
+    color: white;
+  }
+
+/*FOR CARD*/
+
+  .card{
+    padding: 25px 25px 25px 25px;
+    width: 35%;
+  }
+
+  .divider:after,
+  .divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+    }
+
+  .h-custom {
+    height: calc(100% - 73px);
+  }
+  
+/*FOR   IMAGES*/
+  img {
+    border: 0;
+    outline: 0px solid transparent;
+  }
+
+  .img-fluid {
+    padding: 5px;
+  }
+  

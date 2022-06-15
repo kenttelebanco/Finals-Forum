@@ -1,0 +1,39 @@
+
+/* FOR BODY*/
+body{
+    margin-top:10px;
+}
+
+/* FOR ICON*/
+.icon-1x {
+    font-size: 24px !important;
+}
+
+/*POST A THREAD*/
+.btn-success{
+    width: 60%;
+}
+
+.col-lg-6{
+    display:flex;
+    width: 98%;
+}
+
+/*FILTER*/
+select{
+    margin-left: 50%;
+}
+
+/* FOR TEXT*/
+a {
+    text-decoration:none;    
+}
+.text-primary, a.text-primary:focus, a.text-primary:hover {
+    color: #00ADBB!important;
+}
+.text-black, .text-hover-black:hover {
+    color: #000 !important;
+}
+.font-weight-bold {
+    font-weight: 700 !important;
+}
