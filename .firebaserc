@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "finals-forum-nlp": {
+      "hosting": {
+        "nlpForum": [
+          "finals-forum-nlp"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "finals-forum-nlp"
+  }
+}

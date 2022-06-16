@@ -10,6 +10,12 @@ import { SignInComponent } from './auth-screen/sign-in/sign-in.component';
 import { UserNavComponent } from './nav/user-nav/user-nav.component';
 import { SigninNavComponent } from './nav/signin-nav/signin-nav.component';
 
+import { AngularFireModule, FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +31,10 @@ import { SigninNavComponent } from './nav/signin-nav/signin-nav.component';
     ForumRoutingModule,
     FormsModule,
     ReactiveFormsModule,  
+
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
   ],
   exports: [],
   providers:[]
