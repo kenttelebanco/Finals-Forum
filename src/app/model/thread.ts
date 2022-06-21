@@ -1,11 +1,10 @@
-import * as internal from "stream";
-
 export interface Thread {
-    uid: string,
+    uid?: string,
     title: string,
     content: string,
     author_id: string,
-    rating: string,
+    rating?: string,
+    author_name?: string,
 
     // the following can be omiited or optional
     tags?: string,

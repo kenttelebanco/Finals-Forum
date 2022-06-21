@@ -3,12 +3,14 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { CRUDReturn } from '../model/crud_return.interface';
 import { User } from '../model/user';
+import { Thread } from '../model/thread';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
   private usersCollection : AngularFirestoreCollection<User>
+  private threadsCollection : AngularFirestoreCollection<Thread>
 
   displayName:any;
   loggedUser = {} as User
@@ -18,11 +20,14 @@ export class FirebaseService {
   currentUser = this.source.asObservable();
 
   user$!: Observable<User[]>
+  thread$!: Observable<Thread[]>
   signedIn: boolean = false;
 
   constructor(private afDb: AngularFirestore) { 
     this.usersCollection = afDb.collection<User>('users');
+    this.threadsCollection = afDb.collection<Thread>('threads');
     this.user$ = this.usersCollection.valueChanges();  
+    this.thread$ = this.threadsCollection.valueChanges();  
   }
 
   //FOR USER
@@ -71,4 +76,17 @@ export class FirebaseService {
   async updateUser(user: User){
     this.source.next(user);
   } 
+
+  // THREAD
+  addThread(post: Thread) {
+    try {
+      post.uid = this.afDb.createId();
+      this.afDb.collection('threads').doc(post.uid).set(post);
+      return true;
+    } catch (error) {
+      console.log(error);
+    }
+    return false;
+  }
+
 }
