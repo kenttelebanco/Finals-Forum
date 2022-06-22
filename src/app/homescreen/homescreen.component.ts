@@ -25,7 +25,7 @@ export class HomescreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sa.getThread().subscribe((val) => {
+    this.sa.getThread().subscribe((val: Thread[]) => {
       this.postThread = val;
     });
 
