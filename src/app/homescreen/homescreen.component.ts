@@ -10,6 +10,7 @@ import { Thread } from '../model/thread';
   styleUrls: ['./homescreen.component.css']
 })
 export class HomescreenComponent implements OnInit {
+  postThread: Thread[] = [];
 
   constructor(private sa: SentimentalAnalysisService,
     private FS: FirebaseService) { } 
@@ -24,6 +25,10 @@ export class HomescreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sa.getThread().subscribe((val) => {
+      this.postThread = val;
+    });
+
     // this.FS.addThread(this.test);
   }
 

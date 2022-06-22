@@ -21,13 +21,14 @@
           </div>
 
           <!-- FOR SAMPLE POST *ato ra niya ni ipopulate-->
-          <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">
+          <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0"
+          *ngFor="let thread of postThread">
             <div class="row align-items-center">
               <div class="col-md-8 mb-3 mb-sm-0">
                 <h5>
-                  <a href="#" class="text-primary">Defend A  Finals Project Guide</a>
+                  <a href="#" class="text-primary">{{thread.title}}</a>
                 </h5>
-                <p class="mb-0 text-sm"><span class="op-6">Posted 39 minutes ago by Kiko Robredo</span> 
+                <p class="mb-0 text-sm"><span class="op-6">Posted 39 minutes ago by {{thread.author_name}}</span> 
 					<div class="text-sm op-5"><a class="text-black mr-2" href="#">#Angular #NLP #Theme #Wordpress</a></div>
               </div>
               <div class="col-md-4 op-7">
@@ -40,24 +41,6 @@
             </div>
           </div>
 
-		  <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">
-            <div class="row align-items-center">
-              <div class="col-md-8 mb-3 mb-sm-0">
-                <h5>
-                  <a href="#" class="text-primary">What Courses To Take?</a>
-                </h5>
-                <p class="mb-0 text-sm"><span class="op-6">Posted 1 hour ago by Klay Thompson</span> 
-					<div class="text-sm op-5"><a class="text-black mr-2" href="#">#ComputerScience #College #Theme #Courses</a></div>
-              </div>
-              <div class="col-md-4 op-7">
-                <div class="row text-center op-7">
-                  <div class="col px-1"> <i class="ion-connection-bars icon-1x"></i> <span class="d-block text-sm">91 Votes</span> </div>
-                  <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm">20 Replys</span> </div>
-                  <div class="col px-1"> <i class="ion-ios-eye-outline icon-1x"></i> <span class="d-block text-sm">794 Views</span> </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- JUST FOR DISPLAY -->

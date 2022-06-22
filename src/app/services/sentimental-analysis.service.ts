@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+import { Thread } from '../model/thread';
 import { FirebaseService } from '../services/firebase.service'
 import {lemmatizer} from "lemmatizer";
 
@@ -11,6 +14,18 @@ declare function require(path: string): any;
 
 
 export class SentimentalAnalysisService {
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+  private threadCollection: AngularFirestoreCollection<Thread>;
+  threads!: Observable<Thread[]>;
+
+  constructor(private FS: FirebaseService, private afDb: AngularFirestore) {
+    this.threadCollection = this.afDb.collection<Thread>('threads');
+    this.threads = this.threadCollection.valueChanges();
+  }
+=======
+>>>>>>> Stashed changes
   pos = require('pos');
 
   constructor(private FS: FirebaseService) {
@@ -26,12 +41,20 @@ export class SentimentalAnalysisService {
       console.log(word + " /" + tag);
     }
     }
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
+
+
+>>>>>>> main
 
 
 
+  getThread() {
+    return this.threads;
+  }
 
-
-  
 
 
 }
