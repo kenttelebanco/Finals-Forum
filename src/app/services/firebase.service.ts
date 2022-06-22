@@ -78,9 +78,10 @@ export class FirebaseService {
   } 
 
   // THREAD
-  addThread(post: Thread) {
+  async addThread(post: Thread) {
     try {
       post.uid = this.afDb.createId();
+      post.author_id = this.afDb.createId();
       this.afDb.collection('threads').doc(post.uid).set(post);
       return true;
     } catch (error) {

@@ -15,6 +15,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { environment } from '../environments/environment';
+import { ThreadComponent } from './post/thread/thread.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { environment } from '../environments/environment';
       SignInComponent,
       RegisterComponent,
       UserNavComponent,
-      SigninNavComponent
+      SigninNavComponent,
+      ThreadComponent
       
   ],
   imports: [
