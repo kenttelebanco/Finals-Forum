@@ -14,11 +14,7 @@ declare function require(path: string): any;
 
 
 export class SentimentalAnalysisService {
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-  private threadCollection: AngularFirestoreCollection<Thread>;
-  threads!: Observable<Thread[]>;
+  pos = require('pos');
 
   constructor(private FS: FirebaseService, private afDb: AngularFirestore) {
     this.threadCollection = this.afDb.collection<Thread>('threads');
@@ -41,14 +37,13 @@ export class SentimentalAnalysisService {
       console.log(word + " /" + tag);
     }
     }
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 
 
 >>>>>>> main
 
+
+  
 
 
   getThread() {
