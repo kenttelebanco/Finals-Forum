@@ -24,13 +24,15 @@ export class SentimentalAnalysisService {
   constructor(private http: HttpClient, private FS: FirebaseService, private afDb: AngularFirestore) {
     this.threadCollection = this.afDb.collection<Thread>('threads');
     this.threads = this.threadCollection.valueChanges();
-    this.http.get('model/trainer.csv', {responseType: 'text'}).subscribe(data=>{
-      let csvByRow = data.split("\n");
+    this.http.get('/assets/trainer.csv', {responseType: 'text'}).subscribe(data=>{
+      let csvByRow = data.split(new RegExp("\n"));
+      console.log(csvByRow[1]);
       for (let index = 1; index < csvByRow.length-1; index++) {
-        let row = csvByRow[index];
-        this.trainerArray.push(new Trainer(parseInt(row[0],10), parseInt(row[1],10), row[2].trim(), parseInt(row[3])));
+        let row = csvByRow[index].split(new RegExp(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"));
+        
+        this.trainerArray.push(new Trainer(parseInt(row[0],10), parseInt(row[1],10), row[2].trim(), parseInt(row[3],10)));
       }
-      console.log(this.trainerArray);
+      console.log(this.trainerArray[0]);
     },error =>{
       console.log(error);
     }
