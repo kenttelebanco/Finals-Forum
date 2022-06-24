@@ -11,4 +11,27 @@ export class Trainer{
         this.sentiment = sentiment;
     }
 
+    toJson(){
+        return {
+            "phraseId": this.pId ,
+            "sentenceId": this.sId , 
+            "tokens": this.tokens ?? '', 
+            "sentiment": this.sentiment
+        }
+
+    }
+
+
+
+
+
+        
+
+
+    
+
+
+        
+    
+
 }
