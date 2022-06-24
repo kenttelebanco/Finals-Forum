@@ -1,13 +1,13 @@
 export class Trainer{
     pId: number;
     sId: number;
-    phrase: string;
+    tokens: Array<string>;
     sentiment: number;
 
-    constructor(pId: number, sId: number, phrase: string, sentiment: number){
+    constructor(pId: number, sId: number, tokens: Array<string>, sentiment: number){
         this.pId = pId;
         this.sId = sId;
-        this.phrase = phrase;
+        this.tokens = tokens;
         this.sentiment = sentiment;
     }
 

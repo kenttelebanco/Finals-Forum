@@ -29,8 +29,8 @@ export class SentimentalAnalysisService {
       console.log(csvByRow[1]);
       for (let index = 1; index < csvByRow.length-1; index++) {
         let row = csvByRow[index].split(new RegExp(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"));
-        
-        this.trainerArray.push(new Trainer(parseInt(row[0],10), parseInt(row[1],10), row[2].trim(), parseInt(row[3],10)));
+        let words = new this.pos.Lexer().lex(row[2].trim());
+        this.trainerArray.push(new Trainer(parseInt(row[0],10), parseInt(row[1],10), words, parseInt(row[3],10)));
       }
       console.log(this.trainerArray[0]);
     },error =>{
