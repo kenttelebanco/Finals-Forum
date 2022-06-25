@@ -13,9 +13,10 @@ import { SigninNavComponent } from './nav/signin-nav/signin-nav.component';
 import { AngularFireModule, FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-
+import { APP_INITIALIZER } from '@angular/core';
 import { environment } from '../environments/environment';
 import { ThreadComponent } from './post/thread/thread.component';
+import { SentimentalAnalysisService } from './services/sentimental-analysis.service';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ThreadComponent } from './post/thread/thread.component';
     AngularFirestoreModule,
   ],
   exports: [],
-  providers:[]
+  providers:[
+  ]
 
 })
 export class ForumModule { }
