@@ -11,5 +11,4 @@ export interface Thread {
     votes?: number,
     replies?: Array<Object>, // Object lang sa kay wala pa man hahaha
     views?: number
-
 }

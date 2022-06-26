@@ -26,7 +26,7 @@
             <div class="row align-items-center">
               <div class="col-md-8 mb-3 mb-sm-0">
                 <h5>
-                  <a href="#" class="text-primary">{{thread.title}}</a>
+                  <a routerLinkActive="active" routerLink="/vthread" class="text-primary" (click)="getAuthorID(thread.author_id)">{{thread.title}}</a>
                 </h5>
                 <p class="mb-0 text-sm"><span class="op-6">Posted 39 minutes ago by {{thread.author_name}}</span> 
 					<div class="text-sm op-5"><a class="text-black mr-2" href="#">#Angular #NLP #Theme #Wordpress</a></div>

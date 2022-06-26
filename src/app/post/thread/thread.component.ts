@@ -12,9 +12,9 @@ export class ThreadComponent implements OnInit {
 
   postThread = {} as Thread;
 
-
   postForm= this.fb.group({
     title:['', [Validators.required]],
+    authorname:['', [Validators.required]],
     textArea:['', Validators.required],
   })
 
@@ -23,8 +23,9 @@ export class ThreadComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async onPost(title:string, textArea:string){
+  async onPost(title:string, authorname:string, textArea:string){
     this.postThread.title = title;
+    this.postThread.author_name = authorname;
     this.postThread.content = textArea;
     var output = await this.fireB.addThread(this.postThread);
     console.log(output);

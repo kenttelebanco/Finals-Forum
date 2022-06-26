@@ -16,7 +16,11 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { APP_INITIALIZER } from '@angular/core';
 import { environment } from '../environments/environment';
 import { ThreadComponent } from './post/thread/thread.component';
+<<<<<<< Updated upstream
 import { SentimentalAnalysisService } from './services/sentimental-analysis.service';
+=======
+import { ViewThreadComponent } from './post/view-thread/view-thread.component';
+>>>>>>> Stashed changes
 
 
 @NgModule({
@@ -26,7 +30,8 @@ import { SentimentalAnalysisService } from './services/sentimental-analysis.serv
       RegisterComponent,
       UserNavComponent,
       SigninNavComponent,
-      ThreadComponent
+      ThreadComponent,
+      ViewThreadComponent,
       
   ],
   imports: [

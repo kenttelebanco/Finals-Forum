@@ -11,8 +11,13 @@
 <form [formGroup]="postForm">
 <div class="title">
 <label for="exampleFormControlTextarea1">Enter Title</label>
-<input class="form-control" type="text" placeholder="Default input" formControlName="title" #title>
+<input class="form-control" type="text" placeholder="Enter Title" formControlName="title" #title>
 </div>
+
+<div class="authorname">
+  <label for="exampleFormControlTextarea1">From:</label>
+  <input class="form-control" type="text" placeholder="Enter Name" formControlName="authorname" #authorname>
+  </div>
 
 <div class="post">
 <div class="form-group">
@@ -22,7 +27,7 @@
 </div>
 
 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"
-[disabled]="!postForm.valid" (click)="onPost(title.value,textArea.value)" >Post</button>
+[disabled]="!postForm.valid" (click)="onPost(title.value, authorname.value, textArea.value)" >Post</button>
 </form>
 
 </div>

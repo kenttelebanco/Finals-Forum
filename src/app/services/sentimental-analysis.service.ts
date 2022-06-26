@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+<<<<<<< Updated upstream
 import {
   AngularFirestore,
   AngularFirestoreCollection,
@@ -12,6 +13,14 @@ import { Token } from '../model/token';
 
 import negTokens from '../../assets/negTokens.json';
 import posTokens from '../../assets/posTokens.json';
+=======
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Observable, map } from 'rxjs';
+import { CRUDReturn } from '../model/crud_return.interface';
+import { Thread } from '../model/thread';
+import { FirebaseService } from '../services/firebase.service'
+// import {lemmatizer} from "lemmatizer";
+>>>>>>> Stashed changes
 
 declare function require(path: string): any;
 @Injectable({
@@ -25,13 +34,22 @@ export class SentimentalAnalysisService {
   posJSON:Token[]=posTokens;
   negJSON:Token[]=negTokens;
 
+<<<<<<< Updated upstream
 
   public trainerArray: Trainer[]=[];
   public negativeTrainerArray: Trainer[] = [];
   public positiveTrainerArray: Trainer[] = [];
+=======
+export class SentimentalAnalysisService {
+
+  // pos = require('pos');
+>>>>>>> Stashed changes
   private threadCollection: AngularFirestoreCollection<Thread>;
   threads!: Observable<Thread[]>;
+  displayName: any;
+  authorId: any;
 
+<<<<<<< Updated upstream
   constructor(
     private FS: FirebaseService,
     private afDb: AngularFirestore
@@ -120,6 +138,24 @@ export class SentimentalAnalysisService {
     }
     console.log(positiveProbability);
     console.log(negativeProbability);
+=======
+  constructor(private FS: FirebaseService, private afDb: AngularFirestore) {
+    // Testing
+    // console.log(lemmatizer("unconditionally"));
+    // var words = new this.pos.Lexer().lex('This is some sample text. This text can contain multiple sentences.');
+    // var tagger = new this.pos.Tagger();
+    // var taggedWords = tagger.tag(words);
+    // for (let i in taggedWords) {
+    //   var taggedWord = taggedWords[i];
+    //   var word = taggedWord[0];
+    //   var tag = taggedWord[1];
+    //   console.log(word + " /" + tag);
+    // }
+
+    this.threadCollection = this.afDb.collection<Thread>('threads');
+    this.threads = this.threadCollection.valueChanges();
+    }
+>>>>>>> Stashed changes
 
     if (positiveProbability >= negativeProbability){
       return "Positive";
@@ -129,6 +165,29 @@ export class SentimentalAnalysisService {
     }
   }
 
+<<<<<<< Updated upstream
   //-------------//
 
+=======
+  getUserID(author_id: string) {
+    return this.authorId = author_id;
+  }
+
+  getUserPost(author_id: string): Observable<CRUDReturn> {
+    return this.threads.pipe(
+      map((Obs) => {
+        
+          let fl = Obs.filter((thread) => {
+            return thread.author_id === author_id;
+          });
+          return fl.length > 0
+            ? {
+                success: true,
+                data: { author_id: fl[0].author_id, authorname: fl[0].author_name, title: fl[0].title, content: fl[0].content},
+              }
+            : { success: false, data: null };
+        })
+    );
+  }
+>>>>>>> Stashed changes
 }
