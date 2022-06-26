@@ -16,7 +16,6 @@ negTokens = {}
 # Iterating through the json
 # list
 
-import os
 def find_match(d, str):
     # for srv_name, srv_id in [(resp['name'], resp['id']) for resp in json.loads(response1.data)]:
     for key, val in d.items():

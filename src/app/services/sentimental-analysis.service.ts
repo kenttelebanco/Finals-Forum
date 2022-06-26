@@ -22,8 +22,8 @@ export class SentimentalAnalysisService {
   path = require('path');
   fs = require("fs");
 
-  posJSON:{id:any,token:{word:string,count:number,pos:string,sentiment:string,probability:number}}[]=posTokens;
-  negJSON:{id:any,token:{word:string,count:number,pos:string,sentiment:string,probability:number}}[]=negTokens;
+  posJSON:Token[]=posTokens;
+  negJSON:Token[]=negTokens;
 
 
   public trainerArray: Trainer[]=[];
@@ -39,8 +39,8 @@ export class SentimentalAnalysisService {
     this.threadCollection = this.afDb.collection<Thread>('threads');
     this.threads = this.threadCollection.valueChanges();
     
-    // this.analyzeRating("very good");
-    // console.log(this.posJSON);
+    let r = this.analyzeRating("very good but could have been better");
+    console.log(r);
   }
 
   
@@ -64,11 +64,68 @@ export class SentimentalAnalysisService {
   }
 
   analyzeRating(text:string){
+    var samePosTokens:Token[]=[];
+    var sameNegTokens:Token[]=[];
     var textTokens = new this.pos.Lexer().lex(text);
     var taggedWords = new this.pos.Tagger().tag(textTokens);
 
-    for(let pos in posTokens ){
-      console.log(Object.entries(pos));
+    var totalTokens = Object.keys(this.posJSON).length + Object.keys(this.negJSON).length;
+    var positiveProbability = Object.keys(this.posJSON).length / totalTokens;
+    var negativeProbability = Object.keys(this.negJSON).length / totalTokens;
+    console.log(positiveProbability);
+    console.log(negativeProbability);
+
+    
+    for(let val of Object.entries(this.posJSON) ){
+      // console.log(val[1]);
+      for (let i in taggedWords) {
+        var taggedWord = taggedWords[i];
+        var word = taggedWord[0];
+        var tag = taggedWord[1];
+        // console.log(word + " /" + tag);
+
+        if(word === val[1].word && tag === val[1].pos){
+          samePosTokens.push(val[1]);
+          // console.log("Positive!  " +word + " /" + tag);
+
+        }
+      }
+    }
+    for(let val of Object.entries(this.negJSON) ){
+      // console.log(val[1]);
+      for (let i in taggedWords) {
+        var taggedWord = taggedWords[i];
+        var word = taggedWord[0];
+        var tag = taggedWord[1];
+        // console.log(word + " /" + tag);
+
+        if(word === val[1].word && tag === val[1].pos){
+          sameNegTokens.push(val[1]);
+          // console.log("Negative!  " +word + " /" + tag);
+
+        }
+      }
+    }
+
+    console.log(samePosTokens);
+    console.log(sameNegTokens);
+
+    for(let pos of Object.values(samePosTokens)){
+      // console.log(pos);
+      positiveProbability *= pos.probability;
+    }
+    for(let neg of Object.values(sameNegTokens)){
+      // console.log(neg);
+      negativeProbability *= neg.probability;
+    }
+    console.log(positiveProbability);
+    console.log(negativeProbability);
+
+    if (positiveProbability >= negativeProbability){
+      return "Positive";
+    }
+    else{
+      return "Negative";
     }
   }
 
