@@ -22,8 +22,8 @@ export class SentimentalAnalysisService {
   path = require('path');
   fs = require("fs");
 
-  posJSON:Token[]=posTokens;
-  negJSON:Token[]=negTokens;
+  posJSON:{id:any,token:{word:string,count:number,pos:string,sentiment:string,probability:number}}[]=posTokens;
+  negJSON:{id:any,token:{word:string,count:number,pos:string,sentiment:string,probability:number}}[]=negTokens;
 
 
   public trainerArray: Trainer[]=[];
@@ -38,8 +38,9 @@ export class SentimentalAnalysisService {
   ) {
     this.threadCollection = this.afDb.collection<Thread>('threads');
     this.threads = this.threadCollection.valueChanges();
-
-    console.log(this.posJSON);
+    
+    // this.analyzeRating("very good");
+    // console.log(this.posJSON);
   }
 
   
@@ -66,7 +67,9 @@ export class SentimentalAnalysisService {
     var textTokens = new this.pos.Lexer().lex(text);
     var taggedWords = new this.pos.Tagger().tag(textTokens);
 
-
+    for(let pos in posTokens ){
+      console.log(Object.entries(pos));
+    }
   }
 
   //-------------//

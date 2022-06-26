@@ -13,4 +13,7 @@ export class Token {
         this.probability = probability;
     }
 
+    toString(){
+        var str = this.word + ' | ' + this.pos;
+    }
 }
