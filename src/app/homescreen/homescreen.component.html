@@ -29,13 +29,13 @@
                   <a routerLinkActive="active" routerLink="/vthread" class="text-primary" (click)="getAuthorID(thread.author_id)">{{thread.title}}</a>
                 </h5>
                 <p class="mb-0 text-sm"><span class="op-6">Posted 39 minutes ago by {{thread.author_name}}</span> 
-					<div class="text-sm op-5"><a class="text-black mr-2" href="#">#Angular #NLP #Theme #Wordpress</a></div>
+					<div class="text-sm op-5"><a class="text-black mr-2" href="#">#Angular #NLP #Movies #Reviews</a></div>
               </div>
               <div class="col-md-4 op-7">
                 <div class="row text-center op-7">
-                  <div class="col px-1"> <i class="ion-connection-bars icon-1x"></i> <span class="d-block text-sm">141 Votes</span> </div>
-                  <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm">122 Replys</span> </div>
-                  <div class="col px-1"> <i class="ion-ios-eye-outline icon-1x"></i> <span class="d-block text-sm">290 Views</span> </div>
+                  <div class="col px-1">  <span class="d-block text-sm">"{{thread.rating}} Rating"</span> </div>
+                  <!-- <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm">122 Replys</span> </div>
+                  <div class="col px-1"> <i class="ion-ios-eye-outline icon-1x"></i> <span class="d-block text-sm">290 Views</span> </div> -->
                 </div>
               </div>
             </div>
@@ -63,7 +63,7 @@
                 <h6 class="text-primary text-sm">
                   <a href="#" class="text-primary">Custom shortcut or command to launch command in terminal? </a>
                 </h6>
-				<p class="mb-0 text-sm"><span class="op-6">Posted 29 minutes ago by Joshua M0ntero</span> 
+				<p class="mb-0 text-sm"><span class="op-6">Posted 29 minutes ago by Joshua Montero</span> 
               </div>
               <hr class="m-0">
               <div class="pos-relative px-3 py-3">

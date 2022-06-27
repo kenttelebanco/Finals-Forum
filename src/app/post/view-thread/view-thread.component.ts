@@ -14,19 +14,24 @@ export class ViewThreadComponent implements OnInit {
   content = " ";
   title = " ";
   author = " ";
+  rating = " ";
 
   postForm= this.fb.group({
 
     textArea:['', Validators.required],
   })
 
-  constructor(private fb: FormBuilder, private fireB: FirebaseService, private se: SentimentalAnalysisService) { }
+  constructor(private fb: FormBuilder, private fireB: FirebaseService, private se: SentimentalAnalysisService) { 
+    
+  }
 
   ngOnInit(): void {
     this.se.getUserPost().subscribe((val) => {
-      this.content = val.data.content
-      this.title = val.data.title
-      this.author = val.data.authorname
+      console.log(val.data);
+      this.content = val.data.content;
+      this.title = val.data.title;
+      this.author = val.data.authorname;
+      this.rating = val.data.rating;
     });
   
   }
