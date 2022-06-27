@@ -1,31 +1,16 @@
-import { Injectable } from '@angular/core';
-<<<<<<< Updated upstream
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-} from '@angular/fire/compat/firestore';
-import { Observable,Subscription } from 'rxjs';
-import { Thread } from '../model/thread';
-import { FirebaseService } from '../services/firebase.service';
-
 import { Trainer } from '../model/trainer';
 import { Token } from '../model/token';
 
 import negTokens from '../../assets/negTokens.json';
 import posTokens from '../../assets/posTokens.json';
-=======
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable, map } from 'rxjs';
 import { CRUDReturn } from '../model/crud_return.interface';
 import { Thread } from '../model/thread';
 import { FirebaseService } from '../services/firebase.service'
 // import {lemmatizer} from "lemmatizer";
->>>>>>> Stashed changes
 
 declare function require(path: string): any;
-@Injectable({
-  providedIn: 'root',
-})
 export class SentimentalAnalysisService {
   pos = require('pos');
   path = require('path');
@@ -34,22 +19,15 @@ export class SentimentalAnalysisService {
   posJSON:Token[]=posTokens;
   negJSON:Token[]=negTokens;
 
-<<<<<<< Updated upstream
 
   public trainerArray: Trainer[]=[];
   public negativeTrainerArray: Trainer[] = [];
   public positiveTrainerArray: Trainer[] = [];
-=======
-export class SentimentalAnalysisService {
-
-  // pos = require('pos');
->>>>>>> Stashed changes
   private threadCollection: AngularFirestoreCollection<Thread>;
   threads!: Observable<Thread[]>;
   displayName: any;
   authorId: any;
 
-<<<<<<< Updated upstream
   constructor(
     private FS: FirebaseService,
     private afDb: AngularFirestore
@@ -60,22 +38,6 @@ export class SentimentalAnalysisService {
     let r = this.analyzeRating("very good but could have been better");
     console.log(r);
   }
-
-  
-
-  // constructor(private FS: FirebaseService) {
-  //   // Testing
-  //   console.log(lemmatizer("unconditionally"));
-  //   var words = new this.pos.Lexer().lex('This is some sample text. This text can contain multiple sentences.');
-    // var tagger = new this.pos.Tagger();
-    // var taggedWords = tagger.tag(words);
-    // for (let i in taggedWords) {
-    //   var taggedWord = taggedWords[i];
-    //   var word = taggedWord[0];
-    //   var tag = taggedWord[1];
-  //     console.log(word + " /" + tag);
-  //   }
-  //   }
 
   getThread() {
     return this.threads;
@@ -138,24 +100,6 @@ export class SentimentalAnalysisService {
     }
     console.log(positiveProbability);
     console.log(negativeProbability);
-=======
-  constructor(private FS: FirebaseService, private afDb: AngularFirestore) {
-    // Testing
-    // console.log(lemmatizer("unconditionally"));
-    // var words = new this.pos.Lexer().lex('This is some sample text. This text can contain multiple sentences.');
-    // var tagger = new this.pos.Tagger();
-    // var taggedWords = tagger.tag(words);
-    // for (let i in taggedWords) {
-    //   var taggedWord = taggedWords[i];
-    //   var word = taggedWord[0];
-    //   var tag = taggedWord[1];
-    //   console.log(word + " /" + tag);
-    // }
-
-    this.threadCollection = this.afDb.collection<Thread>('threads');
-    this.threads = this.threadCollection.valueChanges();
-    }
->>>>>>> Stashed changes
 
     if (positiveProbability >= negativeProbability){
       return "Positive";
@@ -165,10 +109,6 @@ export class SentimentalAnalysisService {
     }
   }
 
-<<<<<<< Updated upstream
-  //-------------//
-
-=======
   getUserID(author_id: string) {
     return this.authorId = author_id;
   }
@@ -189,5 +129,4 @@ export class SentimentalAnalysisService {
         })
     );
   }
->>>>>>> Stashed changes
 }
