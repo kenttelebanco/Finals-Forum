@@ -28,10 +28,10 @@ export class ThreadComponent implements OnInit {
     this.postThread.title = title;
     this.postThread.author_name = authorname;
     this.postThread.content = textArea;
-    this.postThread.rating = this.se.analyzeRating(textArea);
+    // this.postThread.rating = this.se.analyzeRating(textArea);
     var output = await this.fireB.addThread(this.postThread);
     console.log(output);
     alert("Post Submitted!")
   }
-
+/////
 }

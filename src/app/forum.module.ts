@@ -13,14 +13,9 @@ import { SigninNavComponent } from './nav/signin-nav/signin-nav.component';
 import { AngularFireModule, FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { APP_INITIALIZER } from '@angular/core';
 import { environment } from '../environments/environment';
 import { ThreadComponent } from './post/thread/thread.component';
-<<<<<<< Updated upstream
-import { SentimentalAnalysisService } from './services/sentimental-analysis.service';
-=======
 import { ViewThreadComponent } from './post/view-thread/view-thread.component';
->>>>>>> Stashed changes
 
 
 @NgModule({
@@ -31,7 +26,8 @@ import { ViewThreadComponent } from './post/view-thread/view-thread.component';
       UserNavComponent,
       SigninNavComponent,
       ThreadComponent,
-      ViewThreadComponent,
+      ViewThreadComponent
+    
       
   ],
   imports: [

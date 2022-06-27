@@ -1,0 +1,43 @@
+/*FOR HEADER*/
+  
+div.header-mask{
+    background-color: rgb(47, 103, 102)
+  }
+
+/*CARD*/
+
+.card{
+    margin-top: 20px;
+}
+
+.card-body {
+    background-color: rgb(189, 189, 189);
+    padding: 10px;
+}
+
+/*FOR THREAD*/
+
+.thread{
+    margin-top: 20px;
+}
+
+/*FOR INPUT*/
+
+.title{
+    margin-top: 2%;
+}
+
+.post{
+    margin-top: 3%;
+}
+
+/*FOR BUTTON*/
+.btn-info {
+    margin-top: 3%;
+    float: right;
+    width: 10%;
+}
+
+.btn-info :hover {
+    background-color: rgb(162, 237, 237);
+}

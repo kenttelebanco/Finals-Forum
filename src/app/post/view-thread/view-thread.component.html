@@ -1,0 +1,35 @@
+<body>
+	<div class="container py-2">
+<app-user-nav></app-user-nav>
+
+<div class="library-header bg-cover">
+  <div class="header-mask py-2 text-white">
+      <h1 class="display-4 font-weight-bold" style="margin-left:13px">Threads</h1>
+  </div>
+</div>
+
+<div class="thread">
+<h3><b>{{title}}</b></h3>
+<a>by: {{author}}</a>
+
+<div class="card">
+    <div class="card-body">
+{{content}}    
+</div>
+  </div>
+</div> 
+
+<form [formGroup]="postForm">
+<div class="post">
+<div class="form-group">
+    <label for="exampleFormControlTextarea1">Post Reply</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="textArea" #textArea></textarea>
+  </div>
+</div>
+
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"
+[disabled]="!postForm.valid">Reply</button>
+</form>
+
+</div>
+</body>
